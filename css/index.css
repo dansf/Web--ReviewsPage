@@ -1,0 +1,190 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+img {
+	width: 100%;
+}
+
+.main {
+	/* border: 1px solid red; */
+	display: flex;
+	justify-content: center;
+	place-items: center;
+	flex-direction: column;
+	row-gap: 1.5rem;
+	height: 100vh;
+	font-family: "Poppins", sans-serif;
+	background: linear-gradient(120deg, hsl(273, 40%, 60%), hsl(190, 40%, 60%));
+}
+
+
+
+.main__container {
+	/* position: relative; */
+	margin: 0 1rem;
+	padding: 2rem 0;
+	max-width: 500px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 1.5rem;
+	background: linear-gradient(
+		20deg,
+		rgba(255, 255, 255, 0.3),
+		rgba(255, 255, 255, 0.7)
+	);
+	backdrop-filter: blur(10px);
+	border-color: rgba(255, 255, 255, 0.7);
+	border-width: 1px;
+	border-style: solid;
+	box-shadow: 4px 4px 3px 2px rgba(0, 0, 0, 0.2);
+	border-radius: 15px;
+}
+
+
+
+.main__title {
+	text-align: center;
+	font-size: 1.5rem;
+	letter-spacing: 3px;
+	color: #fff;
+	font-weight: 600;
+}
+
+.main__title-text::before{
+	content: "<h1>";
+	/* background-color: blue; */
+	display: block;
+	position: relative;
+	left: -10px;
+	width: 5px;
+	height: 20px;
+	font-size: .863rem;
+	font-family: "La Belle Aurore", cursive;
+}
+
+.main__title-text::after{
+	content: "</h1>";
+	/* background-color: blue; */
+	display: block;
+	position: relative;
+	left: -10px;
+	width: 5px;
+	height: 10px;
+	font-size: .863rem;
+	font-family: "La Belle Aurore", cursive;
+}
+
+.main__review {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	row-gap: 1rem;
+}
+
+.main__review-person,
+.main__review-person__img {
+	text-align: center;
+}
+
+/* TODO change the value bellow for a dynamic value */
+.main__review-person__img {
+	width: 170px;
+	/* border: 1px solid red; */
+	position: relative;
+}
+
+.main__review-person__img::after{
+	content: "";
+	display: block;
+	position: relative;
+	left: 7px;
+	bottom: 184px;
+	z-index: -1;
+	border-radius: 50%;
+	height: 100%;
+	background-color: hsl(200, 100%, 70%, .7);
+}
+
+.main__review-person__img img {
+	border-radius: 50%;
+}
+
+.circle{
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	background-color: hsl(200, 100%, 70%, .6);
+	backdrop-filter: blur(5px);
+	z-index: 2;
+	border-radius: 50%;
+	top: 20px;
+	left: -10px;
+	font-family: "Ubuntu Mono", monospace;
+	font-size: 2.5rem;
+	text-align: center;
+	letter-spacing: -10px;	
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	flex-direction: column;
+}
+
+.coma{
+	margin-right: .5rem;
+	line-height: 1rem;
+}
+
+.main__review-person__name{
+	letter-spacing: 5px;
+	font-weight: 600;
+	font-size: 1rem;
+}
+
+.main__review-person__job{
+	text-transform: uppercase;
+	font-size: .938rem;
+	font-weight: 400;
+	color: hsl(240, 70%, 50%)
+}
+
+.main__review-person__arrows{
+	font-size: 1.5rem;
+	font-weight: 700;
+	cursor: default;
+}
+
+.arrows{
+	cursor: pointer;
+	padding: 0 .3rem;
+	transition: ease-in-out .3s;
+}
+
+.arrows:hover{
+	color: hsl(273, 60%, 40%, .8);
+	transition: ease-in-out .3s;
+}
+
+.main__review-person__button {
+	/* width: 100px; */
+	margin-top: 10px;
+	outline: none;
+	border: none;
+	padding: 0.65rem 1.5rem;
+	border-radius: 15px;
+	font-family: "Poppins", sans-serif;
+	font-weight: 600;
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 1);
+	background-color: rgba(255, 255, 255, 0.3);
+	transition: ease-in-out .3s;
+	cursor: pointer;
+}
+
+.main__review-person__button:hover {
+	background-color: rgba(255, 255, 255, 1);
+	transition: ease-in-out .3s;
+}
