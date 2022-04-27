@@ -9,7 +9,6 @@ img {
 }
 
 .main {
-	/* border: 1px solid red; */
 	display: flex;
 	justify-content: center;
 	place-items: center;
@@ -21,7 +20,6 @@ img {
 }
 
 .main__container {
-	/* position: relative; */
 	margin: 0 1rem;
 	padding: 2rem 0;
 	max-width: 500px;
@@ -165,6 +163,27 @@ img {
 	padding: 0 1.5rem;
 	text-align: center;
 	font-size: 2vmax;
+	z-index: -1;
+}
+
+.main__img,
+.main__review-person__name,
+.main__review-person__job,
+.main__review-person__text{
+	opacity: 0;
+	transform: translateY(50px);
+	transition-property: opacity, transform;
+	transition-duration: 1s;
+	transition-timing-function: ease-in-out;
+}
+
+
+.fade{
+	opacity: 1;
+	transform: translateY(0px);
+	transition-property: opacity, transform;
+	transition-duration: 1s;
+	transition-timing-function: ease-in-out;
 }
 
 @media (min-width: 768px){
@@ -181,7 +200,6 @@ img {
 
 .arrows{
 	cursor: pointer;
-	padding: 0 .3rem;
 	transition: ease-in-out .3s;
 }
 
