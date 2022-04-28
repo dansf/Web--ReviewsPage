@@ -3,7 +3,7 @@ class Pessoa {
 		this.img = img;
 		this.nome = nome;
 		this.cargo = cargo;
-		this.decricao = descricao;
+		this.descricao = descricao;
 	}
 }
 
@@ -19,12 +19,22 @@ const imgTag = document.querySelector(".main__img"),
 	cargoTag = document.querySelector(".main__review-person__job"),
 	descTag = document.querySelector(".main__review-person__text");
 
-	window.onload = () => {
-		imgTag.classList.add("fade");
-		nameTag.classList.add("fade");
-		cargoTag.classList.add("fade");
-		descTag.classList.add("fade");
-	};
+let intervalDom;
+
+const intervalFunc = (func, time) => {
+	intervalDom = setInterval(func, time);
+};
+
+const fadeFunc = (tag, fadeType) => {
+	tag.classList.add(fadeType);
+};
+
+window.onload = () => {
+	intervalFunc(fadeFunc(imgTag, "imgFade"), 500);
+	intervalFunc(fadeFunc(nameTag, "fade"), 1500);
+	intervalFunc(fadeFunc(cargoTag, "fade"), 1500);
+	intervalFunc(fadeFunc(descTag, "fade"), 1500);
+};
 
 const adicionarPessoas = (pessoa, img, nome, cargo, descricao) => {
 	pessoa.img = img;
@@ -69,42 +79,38 @@ adicionarPessoas(
 let index = 0,
 	flag = false;
 
-let flagLeft = () => (flag = true);
-let flagRight = () => (flag = false);
-
-const sendInfo = () => {
-	if (flag) {
-		imgTag.scr = listaPessoas[index].img;
-		nameTag.innerHTML = listaPessoas[index].nome;
-		cargoTag.innerHTML = listaPessoas[index].cargo;
-		descTag.innerHTML = listaPessoas[index].descricao;
-
-		index = index - 1;
-	} else {
-		imgTag.src = listaPessoas[index].img;
-		nameTag.innerHTML = listaPessoas[index].nome;
-		cargoTag.innerHTML = listaPessoas[index].cargo;
-		descTag.innerHTML = listaPessoas[index].descricao;
-
-		descTag.classList.add("fade");
-
-		index++;
-	}
-
+const swipeRight = () => {
+	console.log(`Index right atual: ${index}`);
 	if (index == 4) index = 0;
-	else if (index < 0) index = 3;
+	else index++;
+	console.log(`Index right seguinte: ${index}`);
+
+	imgTag.src = listaPessoas[index].img;
+	nameTag.innerHTML = listaPessoas[index].nome;
+	cargoTag.innerHTML = listaPessoas[index].cargo;
+	descTag.innerHTML = listaPessoas[index].descricao;
 };
+
+const swipeLeft = () => {
+	console.log(`Index left atual: ${index}`);
+	if (index == 0) index = 3;
+	else index--;
+	console.log(`Index left seguinte: ${index}`);
+
+	imgTag.src = listaPessoas[index].img;
+	nameTag.innerHTML = listaPessoas[index].nome;
+	cargoTag.innerHTML = listaPessoas[index].cargo;
+	descTag.innerHTML = listaPessoas[index].descricao;
+}
 
 buttonLeft = document
 	.querySelector(".ri-arrow-left-s-line")
 	.addEventListener("click", () => {
-		flagLeft();
-		sendInfo();
+		swipeLeft();
 	});
 
 buttonRight = document
 	.querySelector(".ri-arrow-right-s-line")
 	.addEventListener("click", () => {
-		flagRight();
-		sendInfo();
+		swipeRight();
 	});

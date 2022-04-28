@@ -40,8 +40,6 @@ img {
 	border-radius: 15px;
 }
 
-
-
 .main__title {
 	text-align: center;
 	font-size: 1.5rem;
@@ -72,16 +70,16 @@ img {
 	font-family: "La Belle Aurore", cursive;
 } */
 
-.main__title-text::after{
+.main__title-text::after {
 	content: "";
 	display: block;
 	position: relative;
-	background-color: hsla(240, 70%, 50%, .8);
+	background-color: hsla(240, 70%, 50%, 0.8);
 	left: 120px;
 	/* right: 50%; */
 	width: 90px;
 	height: 4px;
-	font-size: .863rem;
+	font-size: 0.863rem;
 	font-family: "La Belle Aurore", cursive;
 }
 
@@ -105,7 +103,7 @@ img {
 	position: relative;
 }
 
-.main__review-person__img::after{
+.main__review-person__img::after {
 	content: "";
 	display: block;
 	position: relative;
@@ -114,18 +112,18 @@ img {
 	z-index: -1;
 	border-radius: 50%;
 	height: 100%;
-	background-color: hsl(200, 100%, 70%, .7);
+	background-color: hsl(200, 100%, 70%, 0.7);
 }
 
 .main__review-person__img img {
 	border-radius: 50%;
 }
 
-.circle{
+.circle {
 	width: 40px;
 	height: 40px;
 	position: absolute;
-	background-color: hsl(200, 100%, 70%, .6);
+	background-color: hsl(200, 100%, 70%, 0.6);
 	backdrop-filter: blur(5px);
 	z-index: 2;
 	border-radius: 50%;
@@ -134,42 +132,41 @@ img {
 	font-family: "Ubuntu Mono", monospace;
 	font-size: 2.5rem;
 	text-align: center;
-	letter-spacing: -10px;	
+	letter-spacing: -10px;
 	display: flex;
 	align-items: center;
 	justify-content: start;
 	flex-direction: column;
 }
 
-.coma{
-	margin-right: .5rem;
+.coma {
+	margin-right: 0.5rem;
 	line-height: 1rem;
 }
 
-.main__review-person__name{
+.main__review-person__name {
 	letter-spacing: 5px;
 	font-weight: 600;
 	font-size: 1rem;
 }
 
-.main__review-person__job{
+.main__review-person__job {
 	text-transform: uppercase;
-	font-size: .938rem;
+	font-size: 0.938rem;
 	font-weight: 400;
-	color: hsla(240, 70%, 50%, .8);
+	color: hsla(240, 70%, 50%, 0.8);
 }
 
-.main__review-person__text{
+.main__review-person__text {
 	padding: 0 1.5rem;
 	text-align: center;
 	font-size: 2vmax;
 	z-index: -1;
 }
 
-.main__img,
 .main__review-person__name,
 .main__review-person__job,
-.main__review-person__text{
+.main__review-person__text {
 	opacity: 0;
 	transform: translateY(50px);
 	transition-property: opacity, transform;
@@ -177,8 +174,17 @@ img {
 	transition-timing-function: ease-in-out;
 }
 
+.main__img {
+	opacity: 0;
+	transition: opacity 1s ease-in-out;
+}
 
-.fade{
+.imgFade {
+	opacity: 1;
+	transition: opacity 1s ease-in-out;
+}
+
+.fade {
 	opacity: 1;
 	transform: translateY(0px);
 	transition-property: opacity, transform;
@@ -186,26 +192,26 @@ img {
 	transition-timing-function: ease-in-out;
 }
 
-@media (min-width: 768px){
-	.main__review-person__text{
+@media (min-width: 768px) {
+	.main__review-person__text {
 		font-size: 2vmin;
 	}
 }
 
-.main__review-person__arrows{
+.main__review-person__arrows {
 	font-size: 1.5rem;
 	font-weight: 700;
 	cursor: default;
 }
 
-.arrows{
+.arrows {
 	cursor: pointer;
-	transition: ease-in-out .3s;
+	transition: ease-in-out 0.3s;
 }
 
-.arrows:hover{
-	color: hsl(273, 60%, 40%, .8);
-	transition: ease-in-out .3s;
+.arrows:hover {
+	color: hsl(273, 60%, 40%, 0.8);
+	transition: ease-in-out 0.3s;
 }
 
 .main__review-person__button {
@@ -220,11 +226,11 @@ img {
 	border-width: 1px;
 	border-color: rgba(255, 255, 255, 1);
 	background-color: rgba(255, 255, 255, 1);
-	transition: ease-in-out .3s;
+	transition: ease-in-out 0.3s;
 	cursor: pointer;
 }
 
 .main__review-person__button:hover {
 	background-color: rgba(255, 255, 255, 0.3);
-	transition: ease-in-out .3s;
+	transition: ease-in-out 0.3s;
 }
