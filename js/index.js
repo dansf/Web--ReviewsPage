@@ -107,17 +107,28 @@ const swipeLeft = () => {
 	descTag.innerHTML = listaPessoas[index].descricao;
 };
 
+const swipeRandom = () => {
+	randomNumber = Math.random() * 3;
+	index = Math.round(randomNumber);
+	console.log(`Index aleartorio: ${index}`)
+
+	imgTag.src = listaPessoas[index].img;
+	nameTag.innerHTML = listaPessoas[index].nome;
+	cargoTag.innerHTML = listaPessoas[index].cargo;
+	descTag.innerHTML = listaPessoas[index].descricao;
+}
+
 const buttonLeft = document
 	.querySelector(".ri-arrow-left-s-line")
-	.addEventListener("click", () => {
-		swipeLeft();
-	});
+	.addEventListener("click", () => swipeLeft());
 
-const buttonRight = document.querySelector(".ri-arrow-right-s-line");
+const buttonRight = document
+	.querySelector(".ri-arrow-right-s-line")
+	.addEventListener("click", () => swipeRight());
 
-buttonRight.addEventListener("click", () => {
-	swipeRight();
-});
+const buttonRandom = document
+	.querySelector(".main__review-person__button")
+	.addEventListener("click", () => swipeRandom());
 
 window.addEventListener(
 	"keydown",
@@ -133,8 +144,12 @@ window.addEventListener(
 				swipeRight();
 				break;
 
+			case " ":
+				swipeRandom();
+			break;
+
 			default:
-				return;
+			return;
 		}
 
 		event.preventDefault();
