@@ -29,13 +29,6 @@ const fadeFunc = (tag, fadeType) => {
 	tag.classList.add(fadeType);
 };
 
-window.onload = () => {
-	intervalFunc(fadeFunc(imgTag, "imgFade"), 500);
-	intervalFunc(fadeFunc(nameTag, "fade"), 1500);
-	intervalFunc(fadeFunc(cargoTag, "fade"), 1500);
-	intervalFunc(fadeFunc(descTag, "fade"), 1500);
-};
-
 const adicionarPessoas = (pessoa, img, nome, cargo, descricao) => {
 	pessoa.img = img;
 	pessoa.nome = nome;
@@ -51,7 +44,6 @@ adicionarPessoas(
 	"WEB DEVELOPER",
 	"I'm baby meggings twee health goth +1. Bicycle rights tumeric chartreuse before they sold out chambray pop-up. Shaman humblebrag pickled coloring book salvia hoodie, cold-pressed four dollar toast everyday carry"
 );
-
 adicionarPessoas(
 	pessoaDois,
 	"../assets/2.jpg",
@@ -59,7 +51,6 @@ adicionarPessoas(
 	"WEB DESIGNER",
 	"Helvetica artisan kinfolk thundercats lumbersexual blue bottle. Disrupt glossier gastropub deep v vice franzen hell of brooklyn twee enamel pin fashion axe.photo booth jean shorts artisan narwhal."
 );
-
 adicionarPessoas(
 	pessoaTres,
 	"../assets/3.jpg",
@@ -67,7 +58,6 @@ adicionarPessoas(
 	"INTERN",
 	"Sriracha literally flexitarian irony, vape marfa unicorn. Glossier tattooed 8-bit, fixie waistcoat offal activated charcoal slow-carb marfa hell of pabst raclette post-ironic jianbing swag."
 );
-
 adicionarPessoas(
 	pessoaQuatro,
 	"../assets/4.jpg",
@@ -76,12 +66,26 @@ adicionarPessoas(
 	"Edison bulb put a bird on it humblebrag, marfa pok pok heirloom fashion axe cray stumptown venmo actually seitan. VHS farm-to-table schlitz, edison bulb pop-up 3 wolf moon tote bag street art shabby chic."
 );
 
+intervalFunc(fadeFunc(imgTag, "imgFade"), 500);
+intervalFunc(fadeFunc(nameTag, "fade"), 1500);
+intervalFunc(fadeFunc(cargoTag, "fade"), 1500);
+intervalFunc(fadeFunc(descTag, "fade"), 1500);
+
 let index = 0,
 	flag = false;
 
+const initializeSwipe = () => {
+	imgTag.src = listaPessoas[index].img;
+	nameTag.innerHTML = listaPessoas[index].nome;
+	cargoTag.innerHTML = listaPessoas[index].cargo;
+	descTag.innerHTML = listaPessoas[index].descricao;
+};
+
+initializeSwipe();
+
 const swipeRight = () => {
 	console.log(`Index right atual: ${index}`);
-	if (index == 4) index = 0;
+	if (index == 3) index = 0;
 	else index++;
 	console.log(`Index right seguinte: ${index}`);
 
@@ -101,16 +105,39 @@ const swipeLeft = () => {
 	nameTag.innerHTML = listaPessoas[index].nome;
 	cargoTag.innerHTML = listaPessoas[index].cargo;
 	descTag.innerHTML = listaPessoas[index].descricao;
-}
+};
 
-buttonLeft = document
+const buttonLeft = document
 	.querySelector(".ri-arrow-left-s-line")
 	.addEventListener("click", () => {
 		swipeLeft();
 	});
 
-buttonRight = document
-	.querySelector(".ri-arrow-right-s-line")
-	.addEventListener("click", () => {
-		swipeRight();
-	});
+const buttonRight = document.querySelector(".ri-arrow-right-s-line");
+
+buttonRight.addEventListener("click", () => {
+	swipeRight();
+});
+
+window.addEventListener(
+	"keydown",
+	(event) => {
+		if (event.defaultPrevented) return;
+
+		switch (event.key) {
+			case "ArrowLeft":
+				swipeLeft();
+				break;
+
+			case "ArrowRight":
+				swipeRight();
+				break;
+
+			default:
+				return;
+		}
+
+		event.preventDefault();
+	},
+	true
+);
