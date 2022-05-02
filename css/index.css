@@ -48,28 +48,6 @@ img {
 	font-weight: 600;
 }
 
-/* .main__title-text::before{
-	content: "<h1>";
-	display: block;
-	position: relative;
-	left: -10px;
-	width: 5px;
-	height: 20px;
-	font-size: .863rem;
-	font-family: "La Belle Aurore", cursive;
-}
-
-.main__title-text::after{
-	content: "</h1>";
-	display: block;
-	position: relative;
-	left: -10px;
-	width: 5px;
-	height: 10px;
-	font-size: .863rem;
-	font-family: "La Belle Aurore", cursive;
-} */
-
 .main__title-text::after {
 	content: "";
 	display: block;
@@ -96,7 +74,6 @@ img {
 	text-align: center;
 }
 
-/* TODO change the value bellow for a dynamic value */
 .main__review-person__img {
 	width: 170px;
 	/* border: 1px solid red; */
@@ -215,7 +192,6 @@ img {
 }
 
 .main__review-person__button {
-	/* width: 100px; */
 	margin-top: 10px;
 	outline: none;
 	border: none;
